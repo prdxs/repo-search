@@ -4,8 +4,8 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { ThemeProvider } from 'styled-components';
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core';
 
-import { useApollo } from '../apollo/client';
-import theme from '../theme';
+import { useApollo } from '@/apollo/client';
+import theme from '@/theme';
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const apolloClient = useApollo(pageProps.initialApolloState);
