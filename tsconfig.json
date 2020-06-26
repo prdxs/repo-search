@@ -4,6 +4,7 @@
     "paths": {
       "@/apollo/*": ["apollo/*"],
       "@/components/*": ["components/*"],
+      "@/test/*": ["test/*"],
       "@/theme": ["theme"],
       "@/typings/*": ["typings/*"]
     },
