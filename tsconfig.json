@@ -4,7 +4,8 @@
     "paths": {
       "@/apollo/*": ["apollo/*"],
       "@/components/*": ["components/*"],
-      "@/theme": ["theme"]
+      "@/theme": ["theme"],
+      "@/typings/*": ["typings/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

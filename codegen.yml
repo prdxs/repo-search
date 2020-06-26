@@ -1,0 +1,7 @@
+overwrite: true
+schema: schema.json
+generates:
+  typings/api.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"

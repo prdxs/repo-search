@@ -1,8 +1,11 @@
+import React from 'react';
 import gql from 'graphql-tag';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useQuery } from '@apollo/react-hooks';
 
 import { initializeApollo } from '@/apollo/client';
+import { Query } from '@/typings/api';
 
 const ViewerQuery = gql`
   query ViewerQuery {
@@ -12,14 +15,13 @@ const ViewerQuery = gql`
   }
 `;
 
-const Index = () => {
-  const {
-    data: { viewer },
-  } = useQuery(ViewerQuery)!;
+const Index: React.FC = () => {
+  const { data } = useQuery<Pick<Query, 'viewer'>>(ViewerQuery);
+  const viewer = data?.viewer || { name: 'Unknown' };
 
   return (
     <div>
-      You're signed in as {viewer.name}, goto{' '}
+      You&apos;re signed in as {viewer.name}, goto{' '}
       <Link href="/about">
         <a>static</a>
       </Link>{' '}
@@ -28,7 +30,7 @@ const Index = () => {
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
 
   await apolloClient.query({
@@ -40,6 +42,6 @@ export async function getStaticProps() {
       initialApolloState: apolloClient.cache.extract(),
     },
   };
-}
+};
 
 export default Index;
