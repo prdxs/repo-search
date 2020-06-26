@@ -5,17 +5,23 @@ import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
 let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 function createIsomorphLink() {
-  if (typeof window === 'undefined') {
-    const { SchemaLink } = require('apollo-link-schema');
-    const { schema } = require('./schema');
-    return new SchemaLink({ schema });
-  } else {
-    const { HttpLink } = require('apollo-link-http');
-    return new HttpLink({
-      uri: '/api/graphql',
-      credentials: 'same-origin',
-    });
-  }
+  // In case we had our own custom ApolloServer running in the same node process than Next.js
+  // if (typeof window === 'undefined') {
+  //   const { SchemaLink } = require('apollo-link-schema');
+  //   const { schema } = require('./schema');
+  //
+  //   return new SchemaLink({ schema });
+  // }
+
+  const { HttpLink } = require('apollo-link-http');
+
+  return new HttpLink({
+    uri: 'https://api.github.com/graphql',
+    credentials: 'include',
+    headers: {
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_GH_TOKEN}`,
+    },
+  });
 }
 
 function createApolloClient() {

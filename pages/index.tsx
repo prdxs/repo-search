@@ -7,7 +7,6 @@ import { initializeApollo } from '../apollo/client';
 const ViewerQuery = gql`
   query ViewerQuery {
     viewer {
-      id
       name
     }
   }
@@ -20,7 +19,7 @@ const Index = () => {
 
   return (
     <div>
-      You're signed in as {viewer.name} and you're {viewer.status} goto{' '}
+      You're signed in as {viewer.name}, goto{' '}
       <Link href="/about">
         <a>static</a>
       </Link>{' '}
