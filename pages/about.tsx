@@ -1,6 +1,7 @@
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
-export default function About() {
+const About: React.FC = () => {
   return (
     <div>
       This is a static page goto{' '}
@@ -9,5 +10,7 @@ export default function About() {
       </Link>{' '}
       page.
     </div>
-  )
-}
+  );
+};
+
+export default About;
