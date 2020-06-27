@@ -18,7 +18,7 @@ describe('SearchBar', () => {
     expect(input).toBeInTheDocument();
   });
 
-  it("should render the search button when the input doesn't have a value", async () => {
+  it("should render the search button when the input doesn't have a value", () => {
     const { queryByTestId } = render(
       <SearchBar value="" onChange={jest.fn()} />
     );
@@ -29,7 +29,7 @@ describe('SearchBar', () => {
     expect(clearButton).not.toBeInTheDocument();
   });
 
-  it('should render the clear button when the input has a value', async () => {
+  it('should render the clear button when the input has a value', () => {
     const value = 'dog';
     const { queryByTestId } = render(
       <SearchBar value={value} onChange={jest.fn()} />
@@ -41,7 +41,7 @@ describe('SearchBar', () => {
     expect(clearButton).toBeInTheDocument();
   });
 
-  it('should call change handler when the value changes', async () => {
+  it('should call change handler when the value changes', () => {
     const value = 'rat';
     const handleChange = jest.fn();
     const { getByTestId } = render(
@@ -52,5 +52,17 @@ describe('SearchBar', () => {
     fireEvent.change(input, { target: { value } });
 
     expect(handleChange).toHaveBeenCalled();
+  });
+
+  it('should call clear handler when the clear button is clicked', () => {
+    const handleClear = jest.fn();
+    const { getByTestId } = render(
+      <SearchBar value="hamster" onChange={jest.fn()} onClear={handleClear} />
+    );
+    const clearButtonEl = getByTestId('SearchBar-clearButton');
+
+    fireEvent.click(clearButtonEl);
+
+    expect(handleClear).toHaveBeenCalled();
   });
 });

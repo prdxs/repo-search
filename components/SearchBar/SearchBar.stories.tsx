@@ -11,6 +11,7 @@ export default {
 
 export const Controlled: React.FC = () => {
   const [value, setValue] = useState('');
+
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const newValue = event.target.value;
@@ -21,9 +22,14 @@ export const Controlled: React.FC = () => {
     []
   );
 
+  const handleClear = useCallback(() => {
+    action('cleared')();
+    setValue('');
+  }, []);
+
   return (
     <StorybookWrapper>
-      <SearchBar value={value} onChange={handleChange} />
+      <SearchBar value={value} onChange={handleChange} onClear={handleClear} />
     </StorybookWrapper>
   );
 };

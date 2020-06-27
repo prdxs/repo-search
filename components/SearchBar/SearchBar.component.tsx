@@ -14,6 +14,7 @@ const SearchBar: React.FC<ISearchBarProps> = ({
   style,
   value,
   onChange,
+  onClear,
 }) => {
   const hasValue = value !== undefined && value.length !== 0;
 
@@ -35,6 +36,7 @@ const SearchBar: React.FC<ISearchBarProps> = ({
           className=".SearchBar-iconButton"
           aria-label="clear"
           data-testid="SearchBar-clearButton"
+          onClick={onClear}
         >
           <ClearIcon />
         </IconButton>

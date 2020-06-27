@@ -5,4 +5,5 @@ export interface ISearchBarProps extends IComponentProps {
   onChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void;
+  onClear?(): void;
 }
