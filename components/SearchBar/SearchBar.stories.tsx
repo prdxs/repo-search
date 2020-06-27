@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+import { action } from '@storybook/addon-actions';
 
 import StorybookWrapper from '@/components/StorybookWrapper';
 import SearchBar from './SearchBar.component';
@@ -8,8 +9,21 @@ export default {
   component: SearchBar,
 };
 
-export const Text: React.FC = () => (
-  <StorybookWrapper>
-    <SearchBar />
-  </StorybookWrapper>
-);
+export const Controlled: React.FC = () => {
+  const [value, setValue] = useState('');
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const newValue = event.target.value;
+
+      action('changed')(event);
+      setValue(newValue);
+    },
+    []
+  );
+
+  return (
+    <StorybookWrapper>
+      <SearchBar value={value} onChange={handleChange} />
+    </StorybookWrapper>
+  );
+};

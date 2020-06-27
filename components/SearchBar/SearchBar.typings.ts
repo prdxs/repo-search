@@ -1,3 +1,8 @@
 import { IComponentProps } from '@/typings/common';
 
-export type ISearchBarProps = IComponentProps;
+export interface ISearchBarProps extends IComponentProps {
+  value: string;
+  onChange(
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void;
+}

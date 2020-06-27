@@ -1,20 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchBar matches snapshot 1`] = `
+exports[`SearchBar should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
     style="padding: 2rem;"
   >
-    <form
+    <div
       class="MuiPaper-root SearchBar-root SearchBarcomponent__StyledSearchBar-sc-1icb8rc-0 fPthCZ MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiInputBase-root SearchBar-input"
+        data-testid="SearchBar-input"
       >
         <input
           aria-label="search users or repos"
           class="MuiInputBase-input"
+          data-testid="SearchBar-actualInput"
           placeholder="Search users or repos"
           type="text"
           value=""
@@ -23,8 +25,9 @@ exports[`SearchBar matches snapshot 1`] = `
       <button
         aria-label="search"
         class="MuiButtonBase-root MuiIconButton-root .SearchBar-iconButton"
+        data-testid="SearchBar-searchButton"
         tabindex="0"
-        type="submit"
+        type="button"
       >
         <span
           class="MuiIconButton-label"
@@ -44,7 +47,7 @@ exports[`SearchBar matches snapshot 1`] = `
           class="MuiTouchRipple-root"
         />
       </button>
-    </form>
+    </div>
   </div>
 </DocumentFragment>
 `;
