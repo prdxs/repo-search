@@ -1,18 +1,11 @@
 import React from 'react';
 import { render, RenderOptions, RenderResult } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core';
 
-import theme from '@/theme';
+import { IComponentProps } from '@/typings/common';
+import PageWrapper from '@/components/StorybookWrapper';
 
-const Providers: React.FC<{ children?: React.ReactElement }> = ({
-  children,
-}) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
-    </ThemeProvider>
-  );
+const Providers: React.FC<IComponentProps> = ({ children }) => {
+  return <PageWrapper>{children}</PageWrapper>;
 };
 
 const customRender = (

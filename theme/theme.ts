@@ -3,6 +3,7 @@ import red from '@material-ui/core/colors/red';
 import green from '@material-ui/core/colors/green';
 
 const theme = createMuiTheme({
+  spacing: (factor) => `${0.25 * factor}rem`,
   palette: {
     primary: {
       main: red[100],
