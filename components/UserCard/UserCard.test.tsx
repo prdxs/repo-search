@@ -63,4 +63,12 @@ describe('UserCard', () => {
 
     expect(nameEl).toBeInTheDocument();
   });
+
+  it('should render repoCount if provided', () => {
+    const { queryByText } = render(<UserCard repoCount={10} />);
+
+    const nameEl = queryByText(/10/);
+
+    expect(nameEl).toBeInTheDocument();
+  });
 });

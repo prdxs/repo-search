@@ -1,5 +1,5 @@
 import React from 'react';
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, select, text, number } from '@storybook/addon-knobs';
 
 import StorybookWrapper from '@/components/StorybookWrapper';
 import UserCard from './UserCard.component';
@@ -24,11 +24,12 @@ export const Default: React.FC = () => {
   return (
     <StorybookWrapper>
       <UserCard
-        style={{ width: 500, height: 200 }}
+        style={{ width: 380 }}
         avatar={avatar}
         name={text('name', '')}
-        bio={text('bio', "I'm super coool!")}
+        bio={text('bio', 'I am super coool!')}
         location={text('location', 'Manchester')}
+        repoCount={number('repoCount', 0)}
       />
     </StorybookWrapper>
   );

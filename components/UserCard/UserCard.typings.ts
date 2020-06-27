@@ -5,4 +5,5 @@ export interface IUserCardProps extends IComponentProps {
   name?: string;
   bio?: string;
   location?: string;
+  repoCount?: number;
 }

@@ -18,6 +18,7 @@ const UserCard: React.FC<IUserCardProps> = ({
   name,
   bio,
   location,
+  repoCount,
 }) => {
   return (
     <Card className={clsx('UserCard-root', className)} style={style}>
@@ -47,6 +48,15 @@ const UserCard: React.FC<IUserCardProps> = ({
         }
       />
       <CardContent>
+        {!!repoCount && (
+          <Typography
+            className="UserCard-repoCount"
+            variant="body1"
+            component="p"
+          >
+            <b>Repo Count</b> •{` ${repoCount}`}
+          </Typography>
+        )}
         {bio && (
           <Typography variant="body2" color="textSecondary" component="p">
             <b>Bio</b> •{` ${bio}`}
@@ -72,6 +82,10 @@ const StyledSearchBar = styled(UserCard)`
 
     .MuiCardHeader-title {
       font-size: 1.25rem;
+    }
+
+    .UserCard-repoCount {
+      margin-bottom: ${({ theme }) => theme.spacing(1)};
     }
   }
 `;
