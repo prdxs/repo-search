@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import clsx from 'clsx';
 import styled, { css } from 'styled-components';
 import Card from '@material-ui/core/Card';
@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 
 import { IUserCardProps } from './UserCard.typings';
@@ -19,7 +20,19 @@ const UserCard: React.FC<IUserCardProps> = ({
   bio,
   location,
   repoCount,
+  link,
 }) => {
+  const nickname = useMemo(() => {
+    if (link) {
+      const parts = link.split('/');
+      const lastPart = parts[parts.length - 1];
+
+      return lastPart;
+    }
+
+    return '';
+  }, [link]);
+
   return (
     <Card className={clsx('UserCard-root', className)} style={style}>
       <CardHeader
@@ -33,7 +46,16 @@ const UserCard: React.FC<IUserCardProps> = ({
             N/A
           </Avatar>
         }
-        title={name || 'Unknown'}
+        title={
+          <Typography variant="h6">
+            {name || 'Unknown'}{' '}
+            {!!link && (
+              <Link href={link} target="_blank" color="secondary">
+                ({nickname})
+              </Link>
+            )}
+          </Typography>
+        }
         subheader={
           location && (
             <Grid container alignItems="center" spacing={1}>

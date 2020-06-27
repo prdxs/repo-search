@@ -24,7 +24,7 @@ describe('UserCard', () => {
       'https://avatars0.githubusercontent.com/u/16763209?s=460&u=3e17b9f9b36b8b486b31cbf67181070cd9593212&v=4';
     const wrapper = mount(
       <ThemeProvidersWrapper>
-        <UserCard avatar={avatarUrl} />{' '}
+        <UserCard avatar={avatarUrl} />
       </ThemeProvidersWrapper>
     );
 
@@ -70,5 +70,19 @@ describe('UserCard', () => {
     const nameEl = queryByText(/10/);
 
     expect(nameEl).toBeInTheDocument();
+  });
+
+  it('should render link if provided', () => {
+    const link = 'https://github.com/prdxs';
+    const wrapper = mount(
+      <ThemeProvidersWrapper>
+        <UserCard link={link} />
+      </ThemeProvidersWrapper>
+    );
+    const linkParts = link.split('/');
+    const lastPart = linkParts[linkParts.length - 1];
+
+    expect(wrapper.find('a').text()).toEqual(`(${lastPart})`);
+    expect(wrapper.find('a').prop('href')).toEqual(link);
   });
 });

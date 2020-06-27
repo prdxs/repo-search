@@ -21,6 +21,15 @@ export const Default: React.FC = () => {
     undefined
   );
 
+  const link = select(
+    'link',
+    {
+      None: undefined,
+      Ruben: 'https://github.com/prdxs',
+    },
+    undefined
+  );
+
   return (
     <StorybookWrapper>
       <UserCard
@@ -30,6 +39,7 @@ export const Default: React.FC = () => {
         bio={text('bio', 'I am super coool!')}
         location={text('location', 'Manchester')}
         repoCount={number('repoCount', 0)}
+        link={link}
       />
     </StorybookWrapper>
   );
