@@ -3,7 +3,9 @@ import clsx from 'clsx';
 import styled, { css } from 'styled-components';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
 
 import { IUserCardProps } from './UserCard.typings';
 
@@ -12,6 +14,7 @@ const UserCard: React.FC<IUserCardProps> = ({
   style,
   avatar,
   name,
+  bio,
 }) => {
   return (
     <Card className={clsx('UserCard-root', className)} style={style}>
@@ -28,6 +31,13 @@ const UserCard: React.FC<IUserCardProps> = ({
         }
         title={name || 'Unknown'}
       />
+      <CardContent>
+        {bio && (
+          <Typography variant="body2" color="textSecondary" component="p">
+            <b>Bio</b> •{` ${bio}`}
+          </Typography>
+        )}
+      </CardContent>
     </Card>
   );
 };

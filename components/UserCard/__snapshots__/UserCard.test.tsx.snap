@@ -33,6 +33,9 @@ exports[`UserCard should match snapshot 1`] = `
           </span>
         </div>
       </div>
+      <div
+        class="MuiCardContent-root"
+      />
     </div>
   </div>
 </DocumentFragment>

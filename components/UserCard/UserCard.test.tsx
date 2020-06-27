@@ -40,10 +40,19 @@ describe('UserCard', () => {
     expect(nameEl).toBeInTheDocument();
   });
 
-  it('should render the name of the user if provided', () => {
+  it("should render 'Unknown' if the name of the user is not provided", () => {
     const { queryByText } = render(<UserCard />);
 
     const nameEl = queryByText('Unknown');
+
+    expect(nameEl).toBeInTheDocument();
+  });
+
+  it('should render the bio if provided', () => {
+    const bio = 'Cool bio';
+    const { queryByText } = render(<UserCard bio={bio} />);
+
+    const nameEl = queryByText(/Cool bio/);
 
     expect(nameEl).toBeInTheDocument();
   });
