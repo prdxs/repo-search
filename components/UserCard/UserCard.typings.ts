@@ -1,3 +1,5 @@
 import { IComponentProps } from '@/typings/common';
 
-export type IUserCardProps = IComponentProps;
+export interface IUserCardProps extends IComponentProps {
+  avatar?: string;
+}
