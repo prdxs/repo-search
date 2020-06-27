@@ -30,4 +30,21 @@ describe('UserCard', () => {
 
     expect(wrapper.find('img').prop('src')).toEqual(avatarUrl);
   });
+
+  it('should render the name of the user if provided', () => {
+    const name = 'Donald Trump';
+    const { queryByText } = render(<UserCard name={name} />);
+
+    const nameEl = queryByText(name);
+
+    expect(nameEl).toBeInTheDocument();
+  });
+
+  it('should render the name of the user if provided', () => {
+    const { queryByText } = render(<UserCard />);
+
+    const nameEl = queryByText('Unknown');
+
+    expect(nameEl).toBeInTheDocument();
+  });
 });

@@ -7,7 +7,12 @@ import Avatar from '@material-ui/core/Avatar';
 
 import { IUserCardProps } from './UserCard.typings';
 
-const UserCard: React.FC<IUserCardProps> = ({ className, style, avatar }) => {
+const UserCard: React.FC<IUserCardProps> = ({
+  className,
+  style,
+  avatar,
+  name,
+}) => {
   return (
     <Card className={clsx('UserCard-root', className)} style={style}>
       <CardHeader
@@ -21,6 +26,7 @@ const UserCard: React.FC<IUserCardProps> = ({ className, style, avatar }) => {
             N/A
           </Avatar>
         }
+        title={name || 'Unknown'}
       />
     </Card>
   );
@@ -37,6 +43,10 @@ const StyledSearchBar = styled(UserCard)`
           width: ${size};
         `;
       }}
+    }
+
+    .MuiCardHeader-title {
+      font-size: 1.25rem;
     }
   }
 `;

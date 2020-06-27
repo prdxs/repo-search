@@ -7,7 +7,7 @@ exports[`UserCard should match snapshot 1`] = `
     style="padding: 2rem;"
   >
     <div
-      class="MuiPaper-root MuiCard-root UserCard-root UserCardcomponent__StyledSearchBar-sc-1aw9vkf-0 bZiFWG MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root UserCard-root UserCardcomponent__StyledSearchBar-sc-1aw9vkf-0 ilsNTJ MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiCardHeader-root"
@@ -25,7 +25,13 @@ exports[`UserCard should match snapshot 1`] = `
         </div>
         <div
           class="MuiCardHeader-content"
-        />
+        >
+          <span
+            class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+          >
+            Unknown
+          </span>
+        </div>
       </div>
     </div>
   </div>
