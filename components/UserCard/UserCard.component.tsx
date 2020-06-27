@@ -6,6 +6,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
 
 import { IUserCardProps } from './UserCard.typings';
 
@@ -15,6 +17,7 @@ const UserCard: React.FC<IUserCardProps> = ({
   avatar,
   name,
   bio,
+  location,
 }) => {
   return (
     <Card className={clsx('UserCard-root', className)} style={style}>
@@ -30,6 +33,18 @@ const UserCard: React.FC<IUserCardProps> = ({
           </Avatar>
         }
         title={name || 'Unknown'}
+        subheader={
+          location && (
+            <Grid container alignItems="center" spacing={1}>
+              <Grid item>
+                <LocationCityIcon fontSize="small" />
+              </Grid>
+              <Grid item>
+                <Typography variant="body2">{location}</Typography>
+              </Grid>
+            </Grid>
+          )
+        }
       />
       <CardContent>
         {bio && (

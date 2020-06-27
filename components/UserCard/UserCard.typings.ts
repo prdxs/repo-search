@@ -4,4 +4,5 @@ export interface IUserCardProps extends IComponentProps {
   avatar?: string;
   name?: string;
   bio?: string;
+  location?: string;
 }

@@ -21,17 +21,14 @@ export const Default: React.FC = () => {
     undefined
   );
 
-  const name = text('name', '');
-
-  const bio = text('bio', "I'm super coool!");
-
   return (
     <StorybookWrapper>
       <UserCard
         style={{ width: 500, height: 200 }}
         avatar={avatar}
-        name={name}
-        bio={bio}
+        name={text('name', '')}
+        bio={text('bio', "I'm super coool!")}
+        location={text('location', 'Manchester')}
       />
     </StorybookWrapper>
   );

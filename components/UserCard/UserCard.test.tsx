@@ -49,10 +49,17 @@ describe('UserCard', () => {
   });
 
   it('should render the bio if provided', () => {
-    const bio = 'Cool bio';
-    const { queryByText } = render(<UserCard bio={bio} />);
+    const { queryByText } = render(<UserCard bio="Cool bio" />);
 
     const nameEl = queryByText(/Cool bio/);
+
+    expect(nameEl).toBeInTheDocument();
+  });
+
+  it('should render the location if provided', () => {
+    const { queryByText } = render(<UserCard location="Manchester" />);
+
+    const nameEl = queryByText(/Manchester/);
 
     expect(nameEl).toBeInTheDocument();
   });
