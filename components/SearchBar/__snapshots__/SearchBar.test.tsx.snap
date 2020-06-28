@@ -7,17 +7,17 @@ exports[`SearchBar should match snapshot 1`] = `
     style="padding: 2rem;"
   >
     <div
-      class="MuiPaper-root SearchBar-root SearchBarcomponent__StyledSearchBar-sc-1icb8rc-0 fPthCZ MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root SearchBar-root SearchBarcomponent__StyledSearchBar-sc-1icb8rc-0 iGNTmi MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiInputBase-root SearchBar-input"
         data-testid="SearchBar-input"
       >
         <input
-          aria-label="search users or repos"
+          aria-label="search github users"
           class="MuiInputBase-input"
           data-testid="SearchBar-actualInput"
-          placeholder="Search users or repos"
+          placeholder="Search Github users"
           type="text"
           value=""
         />

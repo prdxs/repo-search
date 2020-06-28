@@ -22,9 +22,9 @@ const SearchBar: React.FC<ISearchBarProps> = ({
     <Paper className={clsx('SearchBar-root', className)} style={style}>
       <InputBase
         className="SearchBar-input"
-        placeholder="Search users or repos"
+        placeholder="Search Github users"
         inputProps={{
-          'aria-label': 'search users or repos',
+          'aria-label': 'search github users',
           'data-testid': 'SearchBar-actualInput',
         }}
         value={value}
@@ -58,7 +58,6 @@ const StyledSearchBar = styled(SearchBar)`
     padding: 2px 4px;
     display: flex;
     align-items: center;
-    width: 400px;
 
     .SearchBar-input {
       margin-left: ${({ theme }) => theme.spacing(4)};
