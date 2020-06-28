@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 import { GetStaticProps } from 'next';
 import { useQuery } from '@apollo/react-hooks';
 import Grid from '@material-ui/core/Grid';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Alert from '@material-ui/lab/Alert';
 
 import { initializeApollo } from '@/apollo/client';
@@ -59,7 +60,7 @@ const IndexPage: React.FC<IComponentProps> = ({ className }) => {
   const { avatarUrl, name, location, bio, repositories, url } = viewer || {};
   const repoCount = repositories?.totalCount || 0;
 
-  const { data: usersData } = useQuery<Partial<Query>>(UsersQuery, {
+  const { data: usersData, loading } = useQuery<Partial<Query>>(UsersQuery, {
     skip: !value.length,
     variables: {
       query: value,
@@ -99,6 +100,15 @@ const IndexPage: React.FC<IComponentProps> = ({ className }) => {
       <Grid container justify="center">
         <Grid item className="IndexPage-list">
           <Grid container direction="column" spacing={4}>
+            {loading && (
+              <Grid item>
+                <Grid container justify="center">
+                  <Grid item>
+                    <CircularProgress />
+                  </Grid>
+                </Grid>
+              </Grid>
+            )}
             {foundUsers && (
               <Grid item>
                 <Alert severity="warning">
