@@ -12,6 +12,7 @@ describe('RepositoryCard', () => {
         name="prdxs/repo-search"
         link="https://github.com/prdxs/repo-search"
         stars={12}
+        forks={10}
       />
     );
 
@@ -25,6 +26,7 @@ describe('RepositoryCard', () => {
         name={name}
         link="https://github.com/prdxs/repo-search"
         stars={12}
+        forks={10}
       />
     );
 
@@ -37,7 +39,12 @@ describe('RepositoryCard', () => {
     const link = 'https://github.com/prdxs/repo-search';
     const wrapper = mount(
       <ThemeProvidersWrapper>
-        <RepositoryCard name="prdxs/repo-search" link={link} stars={12} />
+        <RepositoryCard
+          name="prdxs/repo-search"
+          link={link}
+          stars={12}
+          forks={10}
+        />
       </ThemeProvidersWrapper>
     );
 
@@ -51,11 +58,28 @@ describe('RepositoryCard', () => {
         name="prdxs/repo-search"
         link="https://github.com/prdxs/repo-search"
         stars={stars}
+        forks={12}
       />
     );
 
     const nameEl = getByText(`${stars}`);
 
-    expect(nameEl).toHaveTextContent(`${stars}`);
+    expect(nameEl).toBeInTheDocument();
+  });
+
+  it('should render the provided number of forks', () => {
+    const forks = 10;
+    const { getByText } = render(
+      <RepositoryCard
+        name="prdxs/repo-search"
+        link="https://github.com/prdxs/repo-search"
+        stars={12}
+        forks={forks}
+      />
+    );
+
+    const nameEl = getByText(`${forks}`);
+
+    expect(nameEl).toBeInTheDocument();
   });
 });

@@ -7,7 +7,7 @@ exports[`RepositoryCard should match snapshot 1`] = `
     style="padding: 2rem;"
   >
     <div
-      class="MuiPaper-root MuiCard-root RepositoryCard-root RepositoryCardcomponent__StyledRepositoryCard-sc-1c2lx1b-0 gnTwgd MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root RepositoryCard-root RepositoryCardcomponent__StyledRepositoryCard-sc-1c2lx1b-0 hMLpNT MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiCardHeader-root"
@@ -15,17 +15,43 @@ exports[`RepositoryCard should match snapshot 1`] = `
         <div
           class="MuiCardHeader-content"
         >
-          <h6
-            class="MuiTypography-root MuiTypography-h6"
+          <span
+            class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
           >
-            <a
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorSecondary"
-              href="https://github.com/prdxs/repo-search"
-              target="_blank"
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
             >
-              prdxs/repo-search
-            </a>
-          </h6>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <h6
+                  class="MuiTypography-root MuiTypography-h6"
+                >
+                  <a
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorSecondary"
+                    href="https://github.com/prdxs/repo-search"
+                    target="_blank"
+                  >
+                    prdxs/repo-search
+                  </a>
+                </h6>
+              </div>
+            </div>
+          </span>
         </div>
       </div>
       <div
@@ -37,25 +63,64 @@ exports[`RepositoryCard should match snapshot 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
           >
-            <span
-              class="MuiBadge-root"
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root RepositoryCard-star MuiSvgIcon-fontSizeLarge"
-                focusable="false"
-                viewBox="0 0 24 24"
+              <div
+                class="MuiGrid-root MuiGrid-item"
               >
-                <path
-                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                />
-              </svg>
-              <span
-                class="MuiBadge-badge MuiBadge-anchorOriginBottomRightRectangle MuiBadge-colorPrimary"
+                <span
+                  class="MuiBadge-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root RepositoryCard-star MuiSvgIcon-fontSizeLarge"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiBadge-badge MuiBadge-anchorOriginBottomRightRectangle MuiBadge-colorPrimary"
+                  >
+                    12
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item"
               >
-                12
-              </span>
-            </span>
+                <span
+                  class="MuiBadge-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M14 4l2.29 2.29-2.88 2.88 1.42 1.42 2.88-2.88L20 10V4zm-4 0H4v6l2.29-2.29 4.71 4.7V20h2v-8.41l-5.29-5.3z"
+                    />
+                  </svg>
+                  <span
+                    class="MuiBadge-badge MuiBadge-anchorOriginBottomRightRectangle MuiBadge-colorSecondary"
+                  >
+                    10
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

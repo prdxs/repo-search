@@ -8,6 +8,8 @@ import Link from '@material-ui/core/Link';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/Star';
+import CallSplitIcon from '@material-ui/icons/CallSplit';
+import BookIcon from '@material-ui/icons/Book';
 
 import { IRepositoryCardProps } from './RepositoryCard.typings';
 import { Badge } from '@material-ui/core';
@@ -18,31 +20,60 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
   name,
   link,
   stars,
+  forks,
 }) => (
   <Card className={clsx('RepositoryCard-root', className)} style={style}>
     <CardHeader
       title={
-        <Typography variant="h6">
-          <Link href={link} target="_blank" color="secondary">
-            {name}
-          </Link>
-        </Typography>
+        <Grid container spacing={1}>
+          <Grid item>
+            <BookIcon />
+          </Grid>
+          <Grid item>
+            <Typography variant="h6">
+              <Link href={link} target="_blank" color="secondary">
+                {name}
+              </Link>
+            </Typography>
+          </Grid>
+        </Grid>
       }
     />
     <CardContent>
       <Grid container>
         <Grid item xs={6}>
-          <Badge
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }}
-            color="primary"
-            badgeContent={stars}
-            max={Infinity}
-          >
-            <StarIcon className="RepositoryCard-star" fontSize="large" />
-          </Badge>
+          <Grid container justify="center" alignItems="center">
+            <Grid item>
+              <Badge
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                color="primary"
+                badgeContent={stars}
+                max={Infinity}
+              >
+                <StarIcon className="RepositoryCard-star" fontSize="large" />
+              </Badge>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6}>
+          <Grid container justify="center" alignItems="center">
+            <Grid item>
+              <Badge
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                color="secondary"
+                badgeContent={forks}
+                max={Infinity}
+              >
+                <CallSplitIcon fontSize="large" />
+              </Badge>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </CardContent>
@@ -51,6 +82,12 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
 
 const StyledRepositoryCard = styled(RepositoryCard)`
   &.RepositoryCard-root {
+    min-width: 300px;
+
+    .MuiCardContent-root {
+      padding-top: 0;
+    }
+
     .RepositoryCard-star {
       color: #ffd700;
     }
