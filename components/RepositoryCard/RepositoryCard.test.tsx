@@ -11,6 +11,7 @@ describe('RepositoryCard', () => {
       <RepositoryCard
         name="prdxs/repo-search"
         link="https://github.com/prdxs/repo-search"
+        stars={12}
       />
     );
 
@@ -20,7 +21,11 @@ describe('RepositoryCard', () => {
   it('should render the provided name', () => {
     const name = 'prdxs/repo-search';
     const { queryByText } = render(
-      <RepositoryCard name={name} link="https://github.com/prdxs/repo-search" />
+      <RepositoryCard
+        name={name}
+        link="https://github.com/prdxs/repo-search"
+        stars={12}
+      />
     );
 
     const nameEl = queryByText(name);
@@ -32,10 +37,25 @@ describe('RepositoryCard', () => {
     const link = 'https://github.com/prdxs/repo-search';
     const wrapper = mount(
       <ThemeProvidersWrapper>
-        <RepositoryCard name="prdxs/repo-search" link={link} />
+        <RepositoryCard name="prdxs/repo-search" link={link} stars={12} />
       </ThemeProvidersWrapper>
     );
 
     expect(wrapper.find('a').prop('href')).toEqual(link);
+  });
+
+  it('should render the provided number of stars', () => {
+    const stars = 10;
+    const { getByText } = render(
+      <RepositoryCard
+        name="prdxs/repo-search"
+        link="https://github.com/prdxs/repo-search"
+        stars={stars}
+      />
+    );
+
+    const nameEl = getByText(`${stars}`);
+
+    expect(nameEl).toHaveTextContent(`${stars}`);
   });
 });

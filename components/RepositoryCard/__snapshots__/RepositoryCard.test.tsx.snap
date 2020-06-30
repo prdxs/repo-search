@@ -7,7 +7,7 @@ exports[`RepositoryCard should match snapshot 1`] = `
     style="padding: 2rem;"
   >
     <div
-      class="MuiPaper-root MuiCard-root UserCard-root RepositoryCardcomponent__StyledRepositoryCard-sc-1c2lx1b-0 bxATXF MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root RepositoryCard-root RepositoryCardcomponent__StyledRepositoryCard-sc-1c2lx1b-0 gnTwgd MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiCardHeader-root"
@@ -26,6 +26,37 @@ exports[`RepositoryCard should match snapshot 1`] = `
               prdxs/repo-search
             </a>
           </h6>
+        </div>
+      </div>
+      <div
+        class="MuiCardContent-root"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+          >
+            <span
+              class="MuiBadge-root"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root RepositoryCard-star MuiSvgIcon-fontSizeLarge"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+              <span
+                class="MuiBadge-badge MuiBadge-anchorOriginBottomRightRectangle MuiBadge-colorPrimary"
+              >
+                12
+              </span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
