@@ -15,11 +15,17 @@ exports[`RepositoryCard should match snapshot 1`] = `
         <div
           class="MuiCardHeader-content"
         >
-          <span
-            class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          <h6
+            class="MuiTypography-root MuiTypography-h6"
           >
-            prdxs/repo-search
-          </span>
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorSecondary"
+              href="https://github.com/prdxs/repo-search"
+              target="_blank"
+            >
+              prdxs/repo-search
+            </a>
+          </h6>
         </div>
       </div>
     </div>

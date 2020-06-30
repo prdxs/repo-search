@@ -13,7 +13,10 @@ export default {
 export const Default: React.FC = () => {
   return (
     <StorybookWrapper>
-      <RepositoryCard name={text('name', 'facebook/react')} />
+      <RepositoryCard
+        name={text('name', 'facebook/react')}
+        link={text('link', 'https://github.com/facebook/react')}
+      />
     </StorybookWrapper>
   );
 };
