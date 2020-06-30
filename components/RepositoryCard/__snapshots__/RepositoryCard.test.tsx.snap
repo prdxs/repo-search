@@ -5,6 +5,24 @@ exports[`RepositoryCard should match snapshot 1`] = `
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
     style="padding: 2rem;"
-  />
+  >
+    <div
+      class="MuiPaper-root MuiCard-root UserCard-root RepositoryCardcomponent__StyledRepositoryCard-sc-1c2lx1b-0 bxATXF MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <div
+        class="MuiCardHeader-root"
+      >
+        <div
+          class="MuiCardHeader-content"
+        >
+          <span
+            class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+          >
+            prdxs/repo-search
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

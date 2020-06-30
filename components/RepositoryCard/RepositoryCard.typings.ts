@@ -1,3 +1,5 @@
 import { IComponentProps } from '@/typings/common';
 
-export type IRepositoryCardProps = IComponentProps;
+export interface IRepositoryCardProps extends IComponentProps {
+  name: string;
+}
