@@ -13,6 +13,7 @@ describe('RepositoryCard', () => {
         link="https://github.com/prdxs/repo-search"
         stars={12}
         forks={10}
+        issues={100}
       />
     );
 
@@ -27,6 +28,7 @@ describe('RepositoryCard', () => {
         link="https://github.com/prdxs/repo-search"
         stars={12}
         forks={10}
+        issues={100}
       />
     );
 
@@ -44,6 +46,7 @@ describe('RepositoryCard', () => {
           link={link}
           stars={12}
           forks={10}
+          issues={100}
         />
       </ThemeProvidersWrapper>
     );
@@ -59,6 +62,7 @@ describe('RepositoryCard', () => {
         link="https://github.com/prdxs/repo-search"
         stars={stars}
         forks={12}
+        issues={100}
       />
     );
 
@@ -75,10 +79,28 @@ describe('RepositoryCard', () => {
         link="https://github.com/prdxs/repo-search"
         stars={12}
         forks={forks}
+        issues={100}
       />
     );
 
     const nameEl = getByText(`${forks}`);
+
+    expect(nameEl).toBeInTheDocument();
+  });
+
+  it('should render the provided number of issues', () => {
+    const issues = 100;
+    const { getByText } = render(
+      <RepositoryCard
+        name="prdxs/repo-search"
+        link="https://github.com/prdxs/repo-search"
+        stars={12}
+        forks={10}
+        issues={issues}
+      />
+    );
+
+    const nameEl = getByText(`${issues}`);
 
     expect(nameEl).toBeInTheDocument();
   });

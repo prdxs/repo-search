@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/Star';
 import CallSplitIcon from '@material-ui/icons/CallSplit';
 import BookIcon from '@material-ui/icons/Book';
+import BugReportIcon from '@material-ui/icons/BugReport';
 
 import { IRepositoryCardProps } from './RepositoryCard.typings';
 import { Badge } from '@material-ui/core';
@@ -21,6 +22,7 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
   link,
   stars,
   forks,
+  issues,
 }) => (
   <Card className={clsx('RepositoryCard-root', className)} style={style}>
     <CardHeader
@@ -41,7 +43,7 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
     />
     <CardContent>
       <Grid container>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <Grid container justify="center" alignItems="center">
             <Grid item>
               <Badge
@@ -58,7 +60,24 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
+          <Grid container justify="center" alignItems="center">
+            <Grid item>
+              <Badge
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                color="secondary"
+                badgeContent={issues}
+                max={Infinity}
+              >
+                <BugReportIcon fontSize="large" />
+              </Badge>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={4}>
           <Grid container justify="center" alignItems="center">
             <Grid item>
               <Badge

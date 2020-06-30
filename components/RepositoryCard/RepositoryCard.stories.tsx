@@ -18,6 +18,7 @@ export const Default: React.FC = () => {
         link={text('link', 'https://github.com/facebook/react')}
         stars={number('stars', 10)}
         forks={number('forks', 12)}
+        issues={number('issues', 100)}
       />
     </StorybookWrapper>
   );
