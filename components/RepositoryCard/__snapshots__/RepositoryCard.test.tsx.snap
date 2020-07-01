@@ -7,7 +7,7 @@ exports[`RepositoryCard should match snapshot 1`] = `
     style="padding: 2rem;"
   >
     <div
-      class="MuiPaper-root MuiCard-root RepositoryCard-root RepositoryCardcomponent__StyledRepositoryCard-sc-1c2lx1b-0 hMLpNT MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root RepositoryCard-root RepositoryCardcomponent__StyledRepositoryCard-sc-1c2lx1b-0 ljLEiR MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         class="MuiCardHeader-root"
@@ -154,6 +154,11 @@ exports[`RepositoryCard should match snapshot 1`] = `
             </div>
           </div>
         </div>
+        <span
+          class="MuiTypography-root RepositoryCard-lastUpdated MuiTypography-caption"
+        >
+          1st Jul 2020 07:20:59
+        </span>
       </div>
     </div>
   </div>

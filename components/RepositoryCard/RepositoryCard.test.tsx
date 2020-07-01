@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-
 import { render } from '@/test/utils';
 import ThemeProvidersWrapper from '@/components/ThemeProvidersWrapper';
 import RepositoryCard from './RepositoryCard.component';
@@ -14,6 +13,7 @@ describe('RepositoryCard', () => {
         stars={12}
         forks={10}
         issues={100}
+        lastUpdated="1st Jul 2020 07:20:59"
       />
     );
 
@@ -29,6 +29,7 @@ describe('RepositoryCard', () => {
         stars={12}
         forks={10}
         issues={100}
+        lastUpdated="1st Jul 2020 07:20:59"
       />
     );
 
@@ -47,6 +48,7 @@ describe('RepositoryCard', () => {
           stars={12}
           forks={10}
           issues={100}
+          lastUpdated="1st Jul 2020 07:20:59"
         />
       </ThemeProvidersWrapper>
     );
@@ -63,6 +65,7 @@ describe('RepositoryCard', () => {
         stars={stars}
         forks={12}
         issues={100}
+        lastUpdated="1st Jul 2020 07:20:59"
       />
     );
 
@@ -80,6 +83,7 @@ describe('RepositoryCard', () => {
         stars={12}
         forks={forks}
         issues={100}
+        lastUpdated="1st Jul 2020 07:20:59"
       />
     );
 
@@ -97,10 +101,29 @@ describe('RepositoryCard', () => {
         stars={12}
         forks={10}
         issues={issues}
+        lastUpdated="1st Jul 2020 07:20:59"
       />
     );
 
     const nameEl = getByText(`${issues}`);
+
+    expect(nameEl).toBeInTheDocument();
+  });
+
+  it('should render the provided lastUpdated date', () => {
+    const lastUpdated = '1st Jul 2020 07:20:59';
+    const { getByText } = render(
+      <RepositoryCard
+        name="prdxs/repo-search"
+        link="https://github.com/prdxs/repo-search"
+        stars={12}
+        forks={10}
+        issues={100}
+        lastUpdated={lastUpdated}
+      />
+    );
+
+    const nameEl = getByText(`${lastUpdated}`);
 
     expect(nameEl).toBeInTheDocument();
   });

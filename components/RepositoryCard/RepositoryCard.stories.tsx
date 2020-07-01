@@ -19,6 +19,7 @@ export const Default: React.FC = () => {
         stars={number('stars', 10)}
         forks={number('forks', 12)}
         issues={number('issues', 100)}
+        lastUpdated={text('lastUpdated', '1st Jul 2020 07:20:59')}
       />
     </StorybookWrapper>
   );

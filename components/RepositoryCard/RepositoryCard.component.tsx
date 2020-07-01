@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
@@ -23,6 +23,7 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
   stars,
   forks,
   issues,
+  lastUpdated,
 }) => (
   <Card className={clsx('RepositoryCard-root', className)} style={style}>
     <CardHeader
@@ -95,20 +96,40 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
           </Grid>
         </Grid>
       </Grid>
+      <Typography className="RepositoryCard-lastUpdated" variant="caption">
+        {lastUpdated}
+      </Typography>
     </CardContent>
   </Card>
 );
 
 const StyledRepositoryCard = styled(RepositoryCard)`
   &.RepositoryCard-root {
+    position: relative;
     min-width: 300px;
 
     .MuiCardContent-root {
       padding-top: 0;
+      padding-bottom: 40px;
     }
 
     .RepositoryCard-star {
       color: #ffd700;
+    }
+
+    .RepositoryCard-lastUpdated {
+      position: absolute;
+
+      ${({ theme }) => {
+        const space = theme.spacing(1);
+        const color = theme.palette.grey.A200;
+
+        return css`
+          bottom: ${space};
+          right: ${space};
+          color: ${color};
+        `;
+      }}
     }
   }
 `;

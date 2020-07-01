@@ -6,4 +6,5 @@ export interface IRepositoryCardProps extends IComponentProps {
   stars: number;
   forks: number;
   issues: number;
+  lastUpdated: string;
 }
