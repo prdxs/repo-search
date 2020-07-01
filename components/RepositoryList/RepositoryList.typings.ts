@@ -1,3 +1,6 @@
 import { IComponentProps } from '@/typings/common';
+import { IRepository } from './api/typings';
 
-export type IRepositoryListProps = IComponentProps;
+export interface IRepositoryListProps extends IComponentProps {
+  repositories: Array<IRepository>;
+}

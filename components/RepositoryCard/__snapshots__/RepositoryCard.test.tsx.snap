@@ -8,6 +8,7 @@ exports[`RepositoryCard should match snapshot 1`] = `
   >
     <div
       class="MuiPaper-root MuiCard-root RepositoryCard-root RepositoryCardcomponent__StyledRepositoryCard-sc-1c2lx1b-0 ljLEiR MuiPaper-elevation1 MuiPaper-rounded"
+      data-testid="RepositoryCard-root"
     >
       <div
         class="MuiCardHeader-root"

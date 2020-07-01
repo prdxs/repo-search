@@ -25,7 +25,11 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
   issues,
   lastUpdated,
 }) => (
-  <Card className={clsx('RepositoryCard-root', className)} style={style}>
+  <Card
+    className={clsx('RepositoryCard-root', className)}
+    style={style}
+    data-testid="RepositoryCard-root"
+  >
     <CardHeader
       title={
         <Grid container spacing={1}>
@@ -55,6 +59,7 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
                 color="primary"
                 badgeContent={stars}
                 max={Infinity}
+                showZero
               >
                 <StarIcon className="RepositoryCard-star" fontSize="large" />
               </Badge>
@@ -72,6 +77,7 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
                 color="secondary"
                 badgeContent={issues}
                 max={Infinity}
+                showZero
               >
                 <BugReportIcon fontSize="large" />
               </Badge>
@@ -89,6 +95,7 @@ const RepositoryCard: React.FC<IRepositoryCardProps> = ({
                 color="secondary"
                 badgeContent={forks}
                 max={Infinity}
+                showZero
               >
                 <CallSplitIcon fontSize="large" />
               </Badge>
