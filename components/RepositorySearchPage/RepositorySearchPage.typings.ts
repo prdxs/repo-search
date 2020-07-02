@@ -9,4 +9,5 @@ export interface IRepositorySearchPageProps extends IComponentProps {
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void;
   onClear(): void;
+  withLinks?: boolean;
 }

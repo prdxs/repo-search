@@ -1,9 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 import clsx from 'clsx';
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Fab from '@material-ui/core/Fab';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 import { IRepositorySearchPageProps } from './RepositorySearchPage.typings';
 import SearchBar from '@/components/SearchBar';
@@ -17,6 +20,7 @@ const RepositorySearchPage: React.FC<IRepositorySearchPageProps> = ({
   query,
   onChange,
   onClear,
+  withLinks,
 }) => (
   <div className={clsx('RepositorySearchPage-root', className)} style={style}>
     <Grid container justify="center">
@@ -37,24 +41,53 @@ const RepositorySearchPage: React.FC<IRepositorySearchPageProps> = ({
             </Grid>
           )}
           {repositories.length > 0
-            ? repositories.map((repo) => (
-                <Grid item key={repo.id}>
-                  <RepositoryCard
-                    name={repo.name}
-                    link={repo.link}
-                    stars={repo.stars}
-                    forks={repo.forks}
-                    issues={repo.issues}
-                    lastUpdated={repo.lastUpdated}
-                  />
-                </Grid>
-              ))
+            ? repositories.map((repo) => {
+                const viewButton = (
+                  <Fab
+                    className="RepositorySearchPage-viewButton"
+                    color="primary"
+                    aria-label="view"
+                    size="small"
+                  >
+                    <VisibilityIcon />
+                  </Fab>
+                );
+
+                return (
+                  <Grid item key={repo.id}>
+                    <div className="RepositorySearchPage-cardContainer">
+                      <RepositoryCard
+                        name={repo.name}
+                        link={repo.link}
+                        stars={repo.stars}
+                        forks={repo.forks}
+                        issues={repo.issues}
+                        lastUpdated={repo.lastUpdated}
+                      />
+                      {withLinks ? (
+                        <Link
+                          href="/repositories/[repoId]"
+                          as={`/repositories/${repo.id}`}
+                        >
+                          {viewButton}
+                        </Link>
+                      ) : (
+                        viewButton
+                      )}
+                    </div>
+                  </Grid>
+                );
+              })
             : null}
         </Grid>
       </Grid>
     </Grid>
   </div>
 );
+
+RepositorySearchPage.defaultProps = {
+  withLinks: false,
+};
 
 const StyledRepositorySearchPage = styled(RepositorySearchPage)`
   &.RepositorySearchPage-root {
@@ -84,6 +117,22 @@ const StyledRepositorySearchPage = styled(RepositorySearchPage)`
     .RepositorySearchPage-list {
       max-width: 500px;
       padding: ${({ theme }) => theme.spacing(0, 2, 8)};
+
+      .RepositorySearchPage-cardContainer {
+        position: relative;
+
+        .RepositorySearchPage-viewButton {
+          position: absolute;
+          right: -48px;
+          bottom: 0;
+          opacity: 0;
+          transition: opacity 0.4s;
+        }
+
+        &:hover .RepositorySearchPage-viewButton {
+          opacity: 1;
+        }
+      }
     }
   }
 `;
