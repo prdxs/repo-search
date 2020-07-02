@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import debounce from 'debounce';
 
 import { IComponentProps } from '@/typings/common';
 import RepositorySearchPage from './RepositorySearchPage.component';
@@ -28,7 +29,15 @@ const RepositorySearchPageContainer: React.FC<IComponentProps> = (props) => {
   }, []);
 
   useEffect(() => {
-    dispatch(searchRepositories(query));
+    const debouncedSearch = debounce(() => {
+      dispatch(searchRepositories(query));
+    }, 500);
+
+    debouncedSearch();
+
+    return () => {
+      debouncedSearch.clear();
+    };
   }, [query]);
 
   return (
