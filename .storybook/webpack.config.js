@@ -23,6 +23,7 @@ module.exports = ({ config }) => {
   config.resolve.alias['@/test'] = path.resolve(__dirname, '../test');
   config.resolve.alias['@/theme'] = path.resolve(__dirname, '../theme');
   config.resolve.alias['@/typings'] = path.resolve(__dirname, '../typings');
+  config.resolve.alias['@/utils'] = path.resolve(__dirname, '../utils');
 
   return config;
 };
