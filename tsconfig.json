@@ -4,9 +4,11 @@
     "paths": {
       "@/apollo/*": ["apollo/*"],
       "@/components/*": ["components/*"],
+      "@/state/*": ["state/*"],
       "@/test/*": ["test/*"],
       "@/theme": ["theme"],
-      "@/typings/*": ["typings/*"]
+      "@/typings/*": ["typings/*"],
+      "@/utils/*": ["utils/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

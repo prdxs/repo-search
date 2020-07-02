@@ -1,4 +1,4 @@
-import { IRepository } from './typings';
+import { IRepository } from '@/components/RepositorySearchPage/state/typings';
 
 export const repositories: Array<IRepository> = [
   {
