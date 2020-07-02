@@ -24,6 +24,7 @@ export default createSlice({
     );
     builder.addCase(searchRepositories.rejected, (state) => {
       state.loading = false;
+      repositoriesAdapter.removeAll(state);
     });
   },
 });
