@@ -1,1 +1,1 @@
-export { default } from './RepositoryPage.component';
+export { default } from './RepositoryPage.container';

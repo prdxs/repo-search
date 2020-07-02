@@ -10,7 +10,9 @@ import {
   selectRepositoriesLoading,
 } from './state/selectors';
 
-const RepositorySearchPageContainer: React.FC<IComponentProps> = (props) => {
+const RepositorySearchPageContainer: React.FC<
+  IComponentProps & { withLinks: boolean }
+> = ({ withLinks, ...otherProps }) => {
   const dispatch = useDispatch();
   const loading = useSelector(selectRepositoriesLoading);
   const repositories = useSelector(selectRepositories);
@@ -47,7 +49,8 @@ const RepositorySearchPageContainer: React.FC<IComponentProps> = (props) => {
       repositories={repositories}
       onChange={handleChange}
       onClear={handleClear}
-      {...props}
+      withLinks={withLinks}
+      {...otherProps}
     />
   );
 };

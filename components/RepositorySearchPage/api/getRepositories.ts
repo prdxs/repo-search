@@ -6,7 +6,7 @@ import octokit from '@/utils/octokit';
 
 import { IRepository } from '@/components/RepositorySearchPage/state/typings';
 
-const mapDataItemsToRepos = (
+const mapDataItemToRepo = (
   item: ArrayElement<SearchReposResponseData['items']>
 ): IRepository => ({
   id: item.node_id,
@@ -23,10 +23,10 @@ const getRepositories = async (q: string): Promise<Array<IRepository>> => {
   const { data: dataByKeyword } = await octokit.search.repos({ q });
 
   const byUserIds = dataByUser.items.map((item) => item.node_id);
-  const reposByUser = dataByUser.items.map(mapDataItemsToRepos);
+  const reposByUser = dataByUser.items.map(mapDataItemToRepo);
   const reposByKeyword = dataByKeyword.items
     .filter((item) => byUserIds.includes(item.node_id))
-    .map(mapDataItemsToRepos);
+    .map(mapDataItemToRepo);
 
   return [...reposByUser, ...reposByKeyword];
 };

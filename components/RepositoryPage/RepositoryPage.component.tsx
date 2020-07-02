@@ -35,6 +35,11 @@ const RepositoryPage: React.FC<IRepositoryPageProps> = ({
 const StyledRepositoryPage = styled(RepositoryPage)`
   &.RepositoryPage-root {
     height: 100vh;
+
+    > .MuiGrid-container:first-child {
+      padding-top: ${({ theme }) => theme.spacing(8)};
+      padding-bottom: ${({ theme }) => theme.spacing(16)};
+    }
   }
 `;
 

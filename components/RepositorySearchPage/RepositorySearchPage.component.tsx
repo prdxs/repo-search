@@ -11,6 +11,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import { IRepositorySearchPageProps } from './RepositorySearchPage.typings';
 import SearchBar from '@/components/SearchBar';
 import RepositoryCard from '@/components/RepositoryCard';
+import getRepoFromUrl from '@/utils/getRepoFromUrl';
 
 const RepositorySearchPage: React.FC<IRepositorySearchPageProps> = ({
   className,
@@ -52,6 +53,7 @@ const RepositorySearchPage: React.FC<IRepositorySearchPageProps> = ({
                     <VisibilityIcon />
                   </Fab>
                 );
+                const { owner, repo: repoName } = getRepoFromUrl(repo.link);
 
                 return (
                   <Grid item key={repo.id}>
@@ -66,8 +68,8 @@ const RepositorySearchPage: React.FC<IRepositorySearchPageProps> = ({
                       />
                       {withLinks ? (
                         <Link
-                          href="/repositories/[repoId]"
-                          as={`/repositories/${repo.id}`}
+                          href="/repositories/[id]/[owner]/[repo]"
+                          as={`/repositories/${repo.id}/${owner}/${repoName}`}
                         >
                           {viewButton}
                         </Link>

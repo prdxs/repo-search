@@ -1,4 +1,9 @@
-import { createSelector, Selector, EntityState } from '@reduxjs/toolkit';
+import {
+  createSelector,
+  Selector,
+  EntityState,
+  Dictionary,
+} from '@reduxjs/toolkit';
 
 import { TRootState } from '@/state/rootReducer';
 import { IRepository } from './typings';
@@ -15,6 +20,14 @@ export const selectRepositoriesLoading = createSelector<
   EntityState<IRepository> & { loading: boolean },
   boolean
 >(selectRepositoriesState, (repositoriesState) => repositoriesState.loading);
+
+export const selectRepositoryEntities = createSelector<
+  TRootState,
+  EntityState<IRepository> & { loading: boolean },
+  Dictionary<IRepository>
+>(selectRepositoriesState, (repositoriesState) => {
+  return repositoriesState.entities;
+});
 
 export const selectRepositories = createSelector<
   TRootState,
