@@ -11,8 +11,8 @@ const mapDataItemsToRepos = (
 ): IRepository => ({
   id: item.node_id,
   name: item.name,
-  link: item.url,
   stars: item.stargazers_count,
+  link: item.html_url,
   forks: item.forks_count,
   issues: item.open_issues_count,
   lastUpdated: moment(item.updated_at).format('Do MMM YYYY HH:mm:ss'),
