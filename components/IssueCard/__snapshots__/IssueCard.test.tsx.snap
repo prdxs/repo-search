@@ -19,7 +19,13 @@ exports[`IssueCard should match snapshot 1`] = `
           <h6
             class="MuiTypography-root MuiTypography-h6"
           >
-            bug
+            <a
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorSecondary"
+              href="https://github.com/facebook/react/issues/19245"
+              target="_blank"
+            >
+              bug
+            </a>
           </h6>
         </div>
       </div>
