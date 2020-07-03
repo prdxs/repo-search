@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@/test/utils';
 
 import RepositoryPage from './RepositoryPage.component';
+import { issues } from './api/fixtures';
 
 describe('RepositoryPage', () => {
   it('should match snapshot', () => {
@@ -13,6 +14,8 @@ describe('RepositoryPage', () => {
         forks={10}
         issues={100}
         lastUpdated="1st Jul 2020 07:20:59"
+        loadingIssues={false}
+        issueList={issues}
       />
     );
 

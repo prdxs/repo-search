@@ -7,7 +7,6 @@ import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import { render } from '@/test/utils';
 import ThemeProvidersWrapper from '@/components/ThemeProvidersWrapper';
 import IssueCard from './IssueCard.component';
-import { EIssueState } from './IssueCard.typings';
 
 describe('IssueCard', () => {
   it('should match snapshot', () => {
@@ -15,7 +14,7 @@ describe('IssueCard', () => {
       <IssueCard
         title="bug"
         link="https://github.com/facebook/react/issues/19245"
-        state={EIssueState.Open}
+        state="open"
       />
     );
 
@@ -28,7 +27,7 @@ describe('IssueCard', () => {
       <IssueCard
         title={title}
         link="https://github.com/facebook/react/issues/19245"
-        state={EIssueState.Open}
+        state="open"
       />
     );
 
@@ -41,7 +40,7 @@ describe('IssueCard', () => {
     const link = 'https://github.com/facebook/react/issues/19245';
     const wrapper = mount(
       <ThemeProvidersWrapper>
-        <IssueCard title="bug" link={link} state={EIssueState.Open} />
+        <IssueCard title="bug" link={link} state="open" />
       </ThemeProvidersWrapper>
     );
 
@@ -53,14 +52,14 @@ describe('IssueCard', () => {
       <IssueCard
         title="bug"
         link="https://github.com/facebook/react/issues/19245"
-        state={EIssueState.Open}
+        state="open"
       />
     );
 
     expect(wrapper.find(AssignmentLateIcon)).toHaveLength(1);
     expect(wrapper.find(AssignmentTurnedInIcon)).toHaveLength(0);
 
-    wrapper.setProps({ state: EIssueState.Closed });
+    wrapper.setProps({ state: 'closed' });
 
     expect(wrapper.find(AssignmentLateIcon)).toHaveLength(0);
     expect(wrapper.find(AssignmentTurnedInIcon)).toHaveLength(1);

@@ -9,7 +9,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 
-import { IIssueCardProps, EIssueState } from './IssueCard.typings';
+import { IIssueCardProps } from './IssueCard.typings';
 
 const IssueCard: React.FC<IIssueCardProps> = ({
   className,
@@ -25,7 +25,7 @@ const IssueCard: React.FC<IIssueCardProps> = ({
   >
     <CardHeader
       avatar={
-        state === EIssueState.Open ? (
+        state === 'open' ? (
           <Tooltip title="Issue Open">
             <AssignmentLateIcon color="error" />
           </Tooltip>

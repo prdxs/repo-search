@@ -3,7 +3,6 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import StorybookWrapper from '@/components/StorybookWrapper';
 import IssueCard from './IssueCard.component';
-import { EIssueState } from './IssueCard.typings';
 
 export default {
   title: 'IssueCard',
@@ -17,11 +16,7 @@ export const Default: React.FC = () => {
       <IssueCard
         title={text('name', 'bug')}
         link={text('link', 'https://github.com/facebook/react/issues/19245')}
-        state={select(
-          'state',
-          [EIssueState.Open, EIssueState.Closed],
-          EIssueState.Open
-        )}
+        state={select('state', ['open', 'closed'], 'open')}
       />
     </StorybookWrapper>
   );
