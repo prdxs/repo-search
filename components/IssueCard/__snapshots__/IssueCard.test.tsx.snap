@@ -5,6 +5,25 @@ exports[`IssueCard should match snapshot 1`] = `
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
     style="padding: 2rem;"
-  />
+  >
+    <div
+      class="MuiPaper-root MuiCard-root IssueCard-root IssueCardcomponent__StyledIssueCard-sc-1lg5wpy-0 etfYhE MuiPaper-elevation1 MuiPaper-rounded"
+      data-testid="IssueCard-root"
+    >
+      <div
+        class="MuiCardHeader-root"
+      >
+        <div
+          class="MuiCardHeader-content"
+        >
+          <h6
+            class="MuiTypography-root MuiTypography-h6"
+          >
+            bug
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

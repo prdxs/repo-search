@@ -1,3 +1,5 @@
 import { IComponentProps } from '@/typings/common';
 
-export type IIssueCardProps = IComponentProps;
+export interface IIssueCardProps extends IComponentProps {
+  title: string;
+}
