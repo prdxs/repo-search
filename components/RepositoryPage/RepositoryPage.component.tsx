@@ -1,8 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 import clsx from 'clsx';
 import styled, { css } from 'styled-components';
 import { transparentize } from 'polished';
 import Grid from '@material-ui/core/Grid';
+import Tooltip from '@material-ui/core/Tooltip';
+import Fab from '@material-ui/core/Fab';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import RepositoryCard from '@/components/RepositoryCard';
@@ -54,6 +58,13 @@ const RepositoryPage: React.FC<IRepositoryPageProps> = ({
         </Grid>
       </Grid>
     </Grid>
+    <Tooltip title="Back" aria-label="back">
+      <Link href="/repositories">
+        <Fab color="secondary" className="RepositoryPage-backButton">
+          <ArrowBackIcon />
+        </Fab>
+      </Link>
+    </Tooltip>
   </div>
 );
 
@@ -85,6 +96,12 @@ const StyledRepositoryPage = styled(RepositoryPage)`
     .RepositoryPage-list {
       max-width: 500px;
       padding: ${({ theme }) => theme.spacing(0, 2, 8)};
+    }
+
+    .RepositoryPage-backButton {
+      position: fixed;
+      bottom: ${({ theme }) => theme.spacing(8)};
+      right: ${({ theme }) => theme.spacing(4)};
     }
   }
 `;
